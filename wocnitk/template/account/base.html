@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    {%endblock%}
+    <link rel="stylesheet" href="{% static '/css/home.css' %}">
+</head>
+<body>
+    <div class="mobile-nav">
+        <div class="hamburger" id="hamburger">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+        </div>
+        <div class="logo">
+            <img src="/soc-archive-logo.svg" alt="">
+            <span>NITK Winter Of Code</span>
+        </div>
+    </div>
+    <div class="container">
+        <nav class="navigation">
+            <div class="logo">
+                <img src="{{'/media/soc-archive-logo.svg'}}" alt="">
+                NITK Winter Of Code
+            </div>
+            <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects">PROJECTS</a></li>
+                <li><a href="/orgs">ORGS</a></li>
+                {%if user.is_authenticated %}
+                <li><a href="/profile">VIEW PROFILE</a></li>
+                <li><a href="/logout">LOGOUT</a></li>
+                {%else%}
+                <li><a href="/register">REGISTER</a></li>
+                <li><a href="/login">LOGIN</a></li>
+                {%endif%}
+            </ul>
+            <div class="connect-with-us-div">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 14 14">
+                    <path id="Path_40" data-name="Path 40" d="M7,1.244a21.463,21.463,0,0,1,2.8.078,3.607,3.607,0,0,1,1.322.233,2.732,2.732,0,0,1,1.322,1.322A3.607,3.607,0,0,1,12.678,4.2c0,.7.078.933.078,2.8a21.463,21.463,0,0,1-.078,2.8,3.607,3.607,0,0,1-.233,1.322,2.732,2.732,0,0,1-1.322,1.322,3.607,3.607,0,0,1-1.322.233c-.7,0-.933.078-2.8.078a21.463,21.463,0,0,1-2.8-.078,3.607,3.607,0,0,1-1.322-.233,2.732,2.732,0,0,1-1.322-1.322A3.607,3.607,0,0,1,1.322,9.8c0-.7-.078-.933-.078-2.8a21.463,21.463,0,0,1,.078-2.8,3.607,3.607,0,0,1,.233-1.322A2.793,2.793,0,0,1,2.1,2.1a1.315,1.315,0,0,1,.778-.544A3.607,3.607,0,0,1,4.2,1.322,21.463,21.463,0,0,1,7,1.244M7,0A22.981,22.981,0,0,0,4.122.078,4.8,4.8,0,0,0,2.411.389a3.045,3.045,0,0,0-1.244.778A3.045,3.045,0,0,0,.389,2.411,3.544,3.544,0,0,0,.078,4.122,22.981,22.981,0,0,0,0,7,22.981,22.981,0,0,0,.078,9.878a4.8,4.8,0,0,0,.311,1.711,3.045,3.045,0,0,0,.778,1.244,3.045,3.045,0,0,0,1.244.778,4.8,4.8,0,0,0,1.711.311A22.981,22.981,0,0,0,7,14a22.981,22.981,0,0,0,2.878-.078,4.8,4.8,0,0,0,1.711-.311,3.263,3.263,0,0,0,2.022-2.022,4.8,4.8,0,0,0,.311-1.711C13.922,9.1,14,8.867,14,7a22.981,22.981,0,0,0-.078-2.878,4.8,4.8,0,0,0-.311-1.711,3.045,3.045,0,0,0-.778-1.244A3.045,3.045,0,0,0,11.589.389,4.8,4.8,0,0,0,9.878.078,22.981,22.981,0,0,0,7,0M7,3.422A3.52,3.52,0,0,0,3.422,7,3.578,3.578,0,1,0,7,3.422M7,9.333A2.292,2.292,0,0,1,4.667,7,2.292,2.292,0,0,1,7,4.667,2.292,2.292,0,0,1,9.333,7,2.292,2.292,0,0,1,7,9.333m3.733-6.922a.856.856,0,1,0,.856.856.863.863,0,0,0-.856-.856" fill="#fff" fill-rule="evenodd"/>
+                </svg></a>                  
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 14 11.356">
+                        <path id="Path_39" data-name="Path 39" d="M42.433,13.356A8.094,8.094,0,0,0,50.6,5.189V4.8A6.322,6.322,0,0,0,52,3.322a6.457,6.457,0,0,1-1.633.467,3.026,3.026,0,0,0,1.244-1.556,7.134,7.134,0,0,1-1.789.7A2.778,2.778,0,0,0,47.722,2a2.922,2.922,0,0,0-2.878,2.878,1.516,1.516,0,0,0,.078.622,8.041,8.041,0,0,1-5.911-3.033,2.979,2.979,0,0,0-.389,1.478,3.09,3.09,0,0,0,1.244,2.411,2.622,2.622,0,0,1-1.322-.389h0a2.843,2.843,0,0,0,2.333,2.8,2.4,2.4,0,0,1-.778.078,1.324,1.324,0,0,1-.544-.078,2.947,2.947,0,0,0,2.722,2.022A5.872,5.872,0,0,1,38.7,12.033a2.153,2.153,0,0,1-.7-.078,7.341,7.341,0,0,0,4.433,1.4" transform="translate(-38 -2)" fill="#fff" fill-rule="evenodd"/>
+                    </svg>
+                </a>                  
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 7.311 14">
+                        <path id="Path_38" data-name="Path 38" d="M84.744,14V7.622h2.178l.311-2.489H84.744V3.578c0-.7.233-1.244,1.244-1.244h1.322V.078C87,.078,86.222,0,85.367,0a3,3,0,0,0-3.189,3.267V5.133H80V7.622h2.178V14Z" transform="translate(-80)" fill="#fff" fill-rule="evenodd"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+        <div class="right-container">
+            {% block rightcontainer %}
+            {%endblock%}
+        </div>
+    </div>
+    <footer>
+        <div class="link-container">
+            <div class="left">
+                <p class="heading">Learn</p>
+                <a href="#">FAQ</a>
+                <a href="#">MANUALS</a>
+                <a href="#">SOCIAL GROUPS</a>
+            </div>
+            <div class="right">
+                <p class="heading">CONTACT US</p>
+                <a href="#">+91-7427064864</a>
+                <a href="#">Bharatrajput2409@gmail.com</a>
+            </div>
+            <div class="report-problem-div">
+                <form action="/reportbug" method="POST">
+                    {% csrf_token %}
+                    <p class="heading">Report Bug</p>
+                    <textarea name="message" rows="5" placeholder="Entre Bug Information ! " required></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <a href="#" class="back-to-top">Back to top
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 16 16">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <rect width="16" height="16" fill="none"/>
+                      </clipPath>
+                    </defs>
+                    <g id="Component_49_2" data-name="Component 49 – 2" clip-path="url(#clip-path)">
+                      <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H0V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(0 16) rotate(-90)" fill="#fff"/>
+                    </g>
+                  </svg>                  
+            </a>
+        </div>
+        
+        <div class="dev-info">
+            Developed By Bharat Rajput
+        </div>
+    </footer>
+    {%block jsdiv %}
+    {%endblock%}
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends 'account/base.html'%}
+{%load static %}
+{% block rightcontainer %}
+{% for m in messages %}
+    <p style="text-align: center;font-size: 2rem;">{{m}}</p>
+{%endfor %}
+<div class="login-container main-div">
+    <div class="header-div">
+        <div class="login-sellector">LOGIN</div>
+        <div class="register-sellector">REGISTER</div>
+    </div>
+    <div class="login-register-slider">
+        <div class="login-div">
+            <form action="/login" method="POST" onsubmit="return validatelogin(this)">
+                {% csrf_token %}
+                <div class="input-div">
+                    <input type="text" name="username" autocomplete="off" required>
+                    <label for="username"><span class="label-span">Username</span></label>
+                </div>
+                <div class="input-div">
+                    <input type="password" name="password" autocomplete="off" required>
+                    <label for="possword"><span class="label-span">Password</span></label>
+                </div>
+                <input type="hidden" id="loginorregister" value="{{login}}">
+                <input type="submit" class="button" value="Submit">
+            </form>
+        </div>
+        <div class="register-div">
+            <form action="/register" method="POST" onsubmit="return validateregister(this)">
+                {% csrf_token %}
+                <div style="display: flex;width: calc(100% - 12px);">
+                    <div class="input-div" style="margin: 0rem;">
+                        <input type="text" name="fname" autocomplete="off" required>
+                        <label for="fname"><span class="label-span">First Name</span></label>
+                    </div>
+                    <div class="input-div" style="margin: 0rem;">
+                        <input type="text" name="lname" autocomplete="off" required>
+                        <label for="lname"><span class="label-span">Last Name</span></label>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-div">
+                        <input type="text" name="username" autocomplete="off" required onfocusout="checkforavailableusername(this.value)">
+                        <label for="username"><span class="label-span">Registration Number</span></label>
+                    </div>
+                </div>
+                <div style="display: flex;width: calc(100% - 12px);">
+                    <div class="input-div" style="margin:0rem;">
+                        <input type="password" name="password1" autocomplete="off" required>
+                        <label for="possword1"><span class="label-span">Password</span></label>
+                    </div>
+                    <div class="input-div" style="margin: 0rem;">
+                        <input type="password" name="password2" autocomplete="off" required>
+                        <label for="possword2"><span class="label-span">Re-Password</span></label>
+                    </div>
+                </div>
+                <div class="input-div">
+                    <input type="email" name="email" autocomplete="off" required>
+                    <label for="email"><span class="label-span">Email</span></label>
+                </div>
+                <div style="display: flex;width: calc(100% - 14px);">
+                    <div class="input-div">
+                        <input type="text" list="branchlist" name="branch" autocomplete="off" required>
+                        <label for="branch"><span class="label-span">Branch</span></label>
+                        <datalist id="branchlist">
+                            <option>Computer Science</option>
+                            <option>Information Technology</option>
+                            <option>Electrical Engineering</option>
+                            <option>Electronics Engineering</option>
+                            <option>Mechanical Engineering</option>
+                            <option>Civil Engineering</option>
+                            <option>Chemical Engineering</option>
+                            <option>Mining Engineering</option>
+                            <option>Metallurgy Engineering</option>
+                        </datalist>
+                    </div>
+                    <div class="input-div">
+                        <input type="text" list="batchlist" name="batch" autocomplete="off" required>
+                        <label for="batch"><span class="label-span">Batch</span></label>
+                        <datalist id="batchlist">
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                        </datalist>
+                    </div>
+                </div>
+                
+                <input type="submit" class="button" value="Submit">
+                <p class="registererror" style="text-align: center;color: red;"></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{%block jsdiv %}
+<script src="{% static 'js/login.js' %}"></script>
+{%endblock%}

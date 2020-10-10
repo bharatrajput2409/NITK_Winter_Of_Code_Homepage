@@ -1,0 +1,20 @@
+{% extends 'account/base.html'%}
+{%load static %}
+{% block title %}
+<title>Profile</title>    
+{%endblock%}
+{% block rightcontainer %}
+<div class="container-profile">
+    <div class="main-profile-div">
+        <img src="media/bg-img.png" alt="" class="bg-img">
+        <img src="media/me.jpg" alt="" class="user-img">
+        <p class="user-name">{{user.first_name}} {{user.last_name}} </p>
+    </div>
+    <div class="education-div">
+        <p class="heading">Education</p>
+        <p class="college-name">National Institute of Technology Karnataka</p>
+        <p class="degree">Bachelor's degree,{{userdetails.branch}}</p>
+        <p class="duration-of-degree">Batch of {{userdetails.batch}} </p>
+    </div>
+</div>
+{% endblock %}
